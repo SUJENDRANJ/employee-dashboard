@@ -29,7 +29,7 @@ A full-stack Employee Management Dashboard built with React, Tailwind CSS, and j
 - Tailwind CSS
 - Axios
 - Recharts
-- json-server
+- mockAPI
 
 ---
 
@@ -56,12 +56,6 @@ Install dependencies
 npm install
 ```
 
-Start the fake backend
-
-```bash
-npm run server
-```
-
 Start the development server
 
 ```bash
@@ -70,9 +64,6 @@ npm run dev
 
 Frontend:
 http://localhost:5173
-
-Backend:
-http://localhost:5000
 
 ---
 
@@ -100,7 +91,6 @@ DELETE /employees/:id
 
 | Command | Description |
 |---------|-------------|
-| npm run server | Start json-server | 
 | npm run dev | Start development server |
 | npm run build | Build for production |
 
