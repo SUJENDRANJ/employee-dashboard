@@ -33,21 +33,6 @@ A full-stack Employee Management Dashboard built with React, Tailwind CSS, and j
 
 ---
 
-## Project Structure
-
-```
-src/
-├── components/
-├── pages/
-├── services/
-├── App.jsx
-└── main.jsx
-
-db.json
-```
-
----
-
 ## Installation
 
 Install dependencies
