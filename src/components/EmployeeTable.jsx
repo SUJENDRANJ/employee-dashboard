@@ -1,3 +1,14 @@
+function formatJoinDate(dateStr) {
+  if (!dateStr) return "—";
+  const d = new Date(dateStr);
+  if (isNaN(d)) return "—";
+  return d.toLocaleDateString("en-IN", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+}
+
 function EmployeeTable({ employees, onEdit, onDelete, startIndex }) {
   if (employees.length === 0) {
     return (
@@ -23,13 +34,14 @@ function EmployeeTable({ employees, onEdit, onDelete, startIndex }) {
             <th className="px-4 py-3 font-normal">DEPT</th>
             <th className="px-4 py-3 font-normal">POSITION</th>
             <th className="px-4 py-3 font-normal">STATUS</th>
+            <th className="px-4 py-3 font-normal">JOIN DATE</th>
             <th className="px-4 py-3 font-normal">SALARY</th>
             <th className="px-4 py-3 font-normal">ACTIONS</th>
           </tr>
         </thead>
         <tbody>
           {employees.map((emp, index) => {
-            const rowNumber = String(startIndex + index + 1).padStart(4, "0");
+            const rowNumber = String(startIndex + index + 1);
             return (
               <tr
                 key={emp.id}
@@ -60,6 +72,9 @@ function EmployeeTable({ employees, onEdit, onDelete, startIndex }) {
                   >
                     [{emp.status === "Active" ? "ACTIVE" : "INACTIVE"}]
                   </span>
+                </td>
+                <td className="px-4 py-3 text-muted dark:text-muted-light whitespace-nowrap">
+                  {formatJoinDate(emp.joiningDate)}
                 </td>
                 <td className="px-4 py-3 text-ink dark:text-paper">
                   &#8377;{emp.salary}

@@ -12,13 +12,16 @@ function EmployeeFormModal({ editEmployee, onClose, onSave }) {
     editEmployee ? editEmployee.status : "Active",
   );
   const [salary, setSalary] = useState(editEmployee ? editEmployee.salary : "");
+  const [joiningDate, setJoiningDate] = useState(
+    editEmployee ? editEmployee.joiningDate : "",
+  );
   const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // simple validation
-    if (!name || !email || !position || !salary) {
+    if (!name || !email || !position || !salary || !joiningDate) {
       setError("ERR: all fields are required");
       return;
     }
@@ -30,6 +33,7 @@ function EmployeeFormModal({ editEmployee, onClose, onSave }) {
       position: position,
       status: status,
       salary: Number(salary),
+      joiningDate: joiningDate,
     };
 
     onSave(employeeData);
@@ -125,6 +129,18 @@ function EmployeeFormModal({ editEmployee, onClose, onSave }) {
               className={inputClass}
               value={salary}
               onChange={(e) => setSalary(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="block text-xs text-muted dark:text-muted-light mb-1 tracking-widest">
+              JOINING DATE
+            </label>
+            <input
+              type="date"
+              className={inputClass}
+              value={joiningDate}
+              onChange={(e) => setJoiningDate(e.target.value)}
             />
           </div>
 
