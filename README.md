@@ -25,6 +25,7 @@ A full-stack Employee Management Dashboard built with React, Tailwind CSS, and j
 - React 18
 - Vite
 - React Router DOM
+- Redux-toolkit
 - Tailwind CSS
 - Axios
 - Recharts
